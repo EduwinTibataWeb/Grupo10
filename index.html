@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba #2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/ac8137643e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>GRUPO G25 - reto #2</h1>
+    </header>
+    <main class="content">
+        <div class="cont_formulario">
+            <form action="" class="formulario">
+    
+                <label for="idCliente">ID de cliente:</label><br><input type="number" id="idCliente" te><br>
+                <label for="nombreCliente">NOMBRE de cliente:</label><br><input type="text" id="nombreCliente"><br>
+                <label for="mailCliente">CORREO de cliente:</label><br><input type="text" id="mailCliente"><br>
+                <label for="edadCliente">EDAD de cliente:</label><br><input type="number" id="edadCliente"><br>
+            </form>
+            <div class="botones">
+                <div onclick="guardarCliente()">Guardar cliente</div>
+                <div onclick="leerClientes()">Traer cliente</div>
+                <div onclick="editarCliente()">Editar cliente</div>
+            </div>
+        </div>    
+        <div class="clientes">
+            <table class="default"  id="listaClientes">
+                <tr><td><h2>Lista de clientes, no se encuentra resultados </h2></td></tr>
+            </table>
+        
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
