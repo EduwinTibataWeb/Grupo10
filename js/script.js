@@ -1,3 +1,14 @@
+$( document ).ready(function() {
+    var botonMenu = $(".menu");
+    var menu = $(".menu_listas_content");
+    botonMenu.on("click", function(){
+        $(this).toggleClass("active_icon_menu");
+        menu.toggleClass("active_menu");
+    });
+});
+
+
+
 function leerClientes(){
     //FUNCION GET
     $.ajax({    
