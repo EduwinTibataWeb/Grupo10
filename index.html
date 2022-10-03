@@ -9,55 +9,66 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://kit.fontawesome.com/ac8137643e.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/aad879c3d8.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <h1>Disfraz</h1>
-    </header>
     <nav>
-        <div class="cont_menu">
+        <div class="cont_menu_icon">
             <div class="menu" id="menu">
                 <div></div>
                 <div></div>
                 <div></div>
             </div>
-        </div>
-        <div class="menu_listas_content">
-            <h2>Tablas</h2>
-            <ul class="menu_lista">
-                <li><a href="#" class="active">Disfraz</a></li>
-                <li><a href="clientes.html">Clientes</a></li>
-                <li><a href="mensajes.html">Mensajes</a></li>
-            </ul>
-        </div>
+        </div>       
+        <ul class="menu_lista">
+            <li><a href="#" class="active"> <i class="fa-solid fa-masks-theater"></i> Disfraz</a></li>
+            <li><a href="clientes.html"> <i class="fa-solid fa-user"></i> Clientes</a></li>
+            <li><a href="mensajes.html"> <i class="fa-solid fa-comments"></i> Mensajes</a></li>
+        </ul>
     </nav>
+    <header>
+        <h1>Disfraz</h1>
+    </header>
     <main class="content">
         <div class="cont_formulario">
-            <form action="" class="formulario">
-    
-                <label for="idCliente">ID de cliente:</label><br><input type="number" id="idCliente" te><br>
-                <label for="nombreCliente">NOMBRE de cliente:</label><br><input type="text" id="nombreCliente"><br>
-                <label for="mailCliente">CORREO de cliente:</label><br><input type="text" id="mailCliente"><br>
-                <label for="edadCliente">EDAD de cliente:</label><br><input type="number" id="edadCliente"><br>
-            </form>
-            <div class="botones">
-                <div onclick="guardarCliente()">Guardar cliente</div>
-                <div onclick="leerClientes()">Traer cliente</div>
-                <div onclick="editarCliente()">Editar cliente</div>
+            <div class="all_formulario">
+                <div class="cerrar_pop"><i class="fa-solid fa-xmark"></i></div>
+                <form action="" class="formulario">
+                    <label for="idDisfraz">ID</label><br><input type="number" id="idDisfraz"><br>
+                    <label for="brandDisfraz">Brand</label><br><input type="text" id="brandDisfraz"><br>
+                    <label for="modelDisfraz">Model</label><br><input type="number" id="modelDisfraz"><br>
+                    <label for="categoryDisfraz">Category_Id</label><br><input type="number" id="categoryDisfraz"><br>
+                    <label for="nameDisfraz">Name</label><br><input type="text" id="nameDisfraz"><br>
+                </form>
+                <div class="botones">
+                    <div onclick="guardarDisfraz()">Guardar cliente</div>
+                </div>
             </div>
-        </div>    
+        </div>
         <div class="clientes">
-            <table class="default"  id="listaClientes">
-                <tr><td><h2>Lista de clientes, no se encuentra resultados </h2></td></tr>
+            <table class="tablaLista" id="tablaClientes">
+                <tr>
+                    <td>
+                        <table cellspacing="0" cellpadding="1" border="0">
+                            <tr><th>ID</th><th>BRAND</th><th>MODEL</th><th>CATEGORY</th><th>NAME</th><th>BORRAR</th></tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="cont_tabla">
+                            <table id="listaClientes" class="tablaLista">
+                                <tr onclick="leerDisfraz()" class="leerTabla"><td  colspan="2"><h2>Click para ver Tabla</h2></td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
             </table>
-        
         </div>
     </main>
     <footer>
 
     </footer>
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="js/script.js"></script>
 </body>
