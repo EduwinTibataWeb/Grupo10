@@ -38,7 +38,7 @@ ul.menu_lista li a{
     color: #fff;
     text-decoration: none;
     display: inline-block;
-    padding: 1em 4em;
+    padding: 1em 2em;
     width: 100%;
     text-align: center;
     position: relative;
@@ -190,6 +190,10 @@ ul.menu_lista li a:hover::after{
 }
 .clientes table > tr{
     border-bottom: 1px solid rgb(206, 206, 206);
+    width: 130px;
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .btn-borrar{
     color: rgb(255, 0, 0);
@@ -258,6 +262,9 @@ ul.menu_lista li a:hover::after{
 .active_menu{
     max-height: 300px !important;
     padding-top: 4em !important;
+}
+.ocultoForm{
+    display: none;
 }
 @media screen and (max-width: 1200px) {
     .content{

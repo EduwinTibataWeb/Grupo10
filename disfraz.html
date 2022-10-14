@@ -19,30 +19,31 @@
                 <div></div>
                 <div></div>
             </div>
-        </div>
+        </div>       
         <ul class="menu_lista">
             <li><a href="index.html"> <i class="fa-solid fa-layer-group"></i> Categorías</a></li>
-            <li><a href="disfraz.html" > <i class="fa-solid fa-masks-theater"></i> Disfraz</a></li>
-            <li><a href="#" class="active"> <i class="fa-solid fa-user"></i> Clientes</a></li>
+            <li><a href="#" class="active"> <i class="fa-solid fa-masks-theater"></i> Disfraz</a></li>
+            <li><a href="clientes.html"> <i class="fa-solid fa-user"></i> Clientes</a></li>
             <li><a href="mensajes.html"> <i class="fa-solid fa-comments"></i> Mensajes</a></li>
             <li><a href="reservas.html"> <i class="fa-solid fa-calendar-days"></i> Reservas</a></li>
         </ul>
     </nav>
     <header>
-        <h1><i class="fa-solid fa-user"></i> Clientes</h1>
+        <h1>Disfraz</h1>
     </header>
     <main class="content">
         <div class="cont_formulario">
             <div class="all_formulario">
                 <div class="cerrar_pop"><i class="fa-solid fa-xmark"></i></div>
                 <form action="" class="formulario">
-                    <label for="idCliente">ID de cliente:</label><br><input  type="number" id="idCliente"><br>
-                    <label for="nombreCliente">NOMBRE de cliente:</label><br><input maxlength="4000" type="text" id="nombreCliente"><br>
-                    <label for="mailCliente">CORREO de cliente:</label><br><input type="email" maxlength="20" id="mailCliente"><br>
-                    <label for="edadCliente">EDAD de cliente:</label><br><input type="number" id="edadCliente"><br>
+                    <label for="idDisfraz">ID</label><br><input type="number" id="idDisfraz"><br>
+                    <label for="brandDisfraz">Brand</label><br><input type="text" id="brandDisfraz"><br>
+                    <label for="modelDisfraz">Model</label><br><input type="number" id="modelDisfraz"><br>
+                    <label for="categoryDisfraz">Category_Id</label><br><input type="number" id="categoryDisfraz"><br>
+                    <label for="nameDisfraz">Name</label><br><input type="text" id="nameDisfraz"><br>
                 </form>
                 <div class="botones">
-                    <div onclick="guardarCliente()">Guardar cliente</div>
+                    <div onclick="guardarDisfraz()">Guardar cliente</div>
                 </div>
             </div>
         </div>
@@ -51,7 +52,7 @@
                 <tr>
                     <td>
                         <table cellspacing="0" cellpadding="1" border="0">
-                            <tr><th>ID</th><th>NOMBRE</th><th>CORREO</th><th>AÑOS</th><th>BORRAR</th></tr>
+                            <tr><th>ID</th><th>BRAND</th><th>MODEL</th><th>CATEGORY</th><th>NAME</th><th>BORRAR</th></tr>
                         </table>
                     </td>
                 </tr>
@@ -59,7 +60,7 @@
                     <td>
                         <div class="cont_tabla">
                             <table id="listaClientes" class="tablaLista">
-                                <tr onclick="leerClientes()" class="leerTabla"><td  colspan="2"><h2>Click para ver Tabla</h2></td></tr>
+                                <tr onclick="leerDisfraz()" class="leerTabla"><td  colspan="2"><h2>Click para ver Tabla</h2></td></tr>
                             </table>
                         </div>
                     </td>
