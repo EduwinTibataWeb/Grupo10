@@ -29,21 +29,22 @@
         </ul>
     </nav>
     <header>
-        <h1>Disfraz</h1>
+        <h1><i class="fa-solid fa-masks-theater"></i> Disfraz</h1>
     </header>
     <main class="content">
         <div class="cont_formulario">
             <div class="all_formulario">
                 <div class="cerrar_pop"><i class="fa-solid fa-xmark"></i></div>
                 <form action="" class="formulario">
-                    <label for="idDisfraz">ID</label><br><input type="number" id="idDisfraz"><br>
-                    <label for="brandDisfraz">Brand</label><br><input type="text" id="brandDisfraz"><br>
-                    <label for="modelDisfraz">Model</label><br><input type="number" id="modelDisfraz"><br>
-                    <label for="categoryDisfraz">Category_Id</label><br><input type="number" id="categoryDisfraz"><br>
-                    <label for="nameDisfraz">Name</label><br><input type="text" id="nameDisfraz"><br>
+                    <label class="ocultoForm" for="idCostume">ID</label><br><input class="ocultoForm" type="number" id="idCostume" disabled><br>
+                    <label for="brandCostume">Brand</label><br><input type="text" id="brandCostume"><br>
+                    <label for="yearCostume">year</label><br><input type="number" id="yearCostume"><br>
+                    <label for="descriptionCostume">description</label><br><input type="text" id="descriptionCostume"><br>
+                    <label for="nameCostume">Name</label><br><input type="text" id="nameCostume"><br>
+                    <label for="categoryCostume">Category_Id</label><br><input type="number" id="categoryCostume"><br>
                 </form>
                 <div class="botones">
-                    <div onclick="guardarDisfraz()">Guardar cliente</div>
+                    <div onclick="guardarCostume()">Guardar Disfraz</div>
                 </div>
             </div>
         </div>
@@ -52,7 +53,7 @@
                 <tr>
                     <td>
                         <table cellspacing="0" cellpadding="1" border="0">
-                            <tr><th>ID</th><th>BRAND</th><th>MODEL</th><th>CATEGORY</th><th>NAME</th><th>BORRAR</th></tr>
+                            <tr><th>ID</th><th>BRAND</th><th>YEAR</th><th>DESCRIPTION</th><th>NAME</th><th>CATEGORY</th><th>BORRAR</th></tr>
                         </table>
                     </td>
                 </tr>
@@ -60,7 +61,7 @@
                     <td>
                         <div class="cont_tabla">
                             <table id="listaClientes" class="tablaLista">
-                                <tr onclick="leerDisfraz()" class="leerTabla"><td  colspan="2"><h2>Click para ver Tabla</h2></td></tr>
+                                <tr onclick="leerCostume()" class="leerTabla"><td  colspan="2"><h2>Click para ver Tabla</h2></td></tr>
                             </table>
                         </div>
                     </td>

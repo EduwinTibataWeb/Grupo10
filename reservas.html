@@ -29,18 +29,22 @@
         </ul>
     </nav>
     <header>
-        <h1><i class="fa-solid fa-comments"></i> Mensajes</h1>
+        <h1><i class="fa-solid fa-calendar-days"></i> Reservas</h1>
     </header>
     <main class="content">
         <div class="cont_formulario">
             <div class="all_formulario">
                 <div class="cerrar_pop"><i class="fa-solid fa-xmark"></i></div>
                 <form action="" class="formulario">
-                    <label for="idMensaje">ID</label><br><input type="number" id="idMensaje"><br>
-                    <label for="mensaje">Mensaje</label><br><textarea id="mensaje" name="text" rows="4" cols="50"></textarea><br>
+                    <label for="idReservation" class="ocultoForm">ID</label><br><input type="number" id="idReservation" class="ocultoForm" disabled><br>
+                    <label for="startDateReservation">startDate</label><br><input type="text" id="startDateReservation"><br>
+                    <label for="devolutionDateReservation">devolutionDate</label><br><input type="text" id="devolutionDateReservation"><br>
+                    <label for="costumeReservation">costume</label><br><input type="number" id="costumeReservation"><br>
+                    <label for="clientReservation">client</label><br><input type="number" id="clientReservation"><br>
+                    <label for="statusReservation">status</label><br><input type="text" id="statusReservation"><br>
                 </form>
                 <div class="botones">
-                    <div onclick="guardarMensaje()">Guardar Mensaje</div>
+                    <div onclick="guardarReservation()">Guardar Reservation</div>
                 </div>
             </div>
         </div>
@@ -49,7 +53,7 @@
                 <tr>
                     <td>
                         <table cellspacing="0" cellpadding="1" border="0">
-                            <tr><th>ID</th><th>MENSAJE</th><th>BORRAR</th></tr>
+                            <tr><th>ID</th><th>startDate</th><th>devolutionDate</th><th>costume</th><th>client</th><th>status</th><th>BORRAR</th></tr>
                         </table>
                     </td>
                 </tr>
@@ -57,7 +61,7 @@
                     <td>
                         <div class="cont_tabla">
                             <table id="listaClientes" class="tablaLista">
-                                <tr onclick="leerMensaje()" class="leerTabla"><td  colspan="2"><h2>Click para ver Tabla</h2></td></tr>
+                                <tr onclick="leerReservation()" class="leerTabla"><td  colspan="2"><h2>Click para ver Tabla</h2></td></tr>
                             </table>
                         </div>
                     </td>
