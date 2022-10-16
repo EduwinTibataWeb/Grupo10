@@ -368,3 +368,345 @@ function datosTablaDisfraz(Disfraz_item){
         }
     });
 }
+
+
+// Client
+
+function leerClientes(){
+    //FUNCION GET
+    $.ajax({    
+        url : 'http://192.9.144.130:8080/api/Client/all',
+        type : 'GET',
+        dataType : 'json',
+
+        success : function(Client) {
+               let cs=Client;
+               $("#listaClientes").empty();
+               if(cs.length <= 0){
+                    $("#listaClientes").append("<tr><td class='noClientes' colspan='5'>No hay Categorias</td></tr>");
+               }else{
+                    for(i=0;i<cs.length;i++){
+                       /*let nl = cs[i].client.id;
+                       if(cs[i].costumes.id == undefined){
+                            nl = "No hay";
+                       }*/
+                       $("#listaClientes").append("<tr class='TablaSelec' onClick='datosTablaClient(" + cs[i].idCLient + ")'><td>" + cs[i].idClient + "</td><td>" + cs[i].email + "</td><td>" + cs[i].password + "</td><td>" + cs[i].name + "</td><td>" + cs[i].age + "</td><td class='borrar'><div class='btn-borrar' onclick='borrarClient("+cs[i].idClient+")'><i class='fa-solid fa-trash-can'></i></div></td></tr>");
+                    }
+               }
+        },
+        error : function(xhr, status) {
+            alert('ha sucedido un problema');
+        }
+    });
+}
+
+function guardarCliente() {
+    //FUNCION POST
+    let emailClient=$("#mailCliente").val();
+    let passwordClient=$("#passwordCliente").val();
+    let nameClient=$("#nombreCliente").val();
+    let ageClient=$("#edadCliente").val();
+
+    if(nameClient){
+        let data={
+            email: emailClient,
+            password: passwordClient,
+            name: nameClient,
+            age: ageClient,
+        };
+        
+        let dataToSend=JSON.stringify(data);
+        
+        $.ajax({    
+            url : 'http://192.9.144.130:8080/api/Client/save',
+            type : 'POST',
+            //dataType : 'json',
+            data:dataToSend,
+            contentType:'application/json',
+            success : function(pepito) {
+                $("#mailCliente").val("");
+                $("#passwordCliente").val("");
+                $("#nombreCliente").val("");
+                $("#edadCliente").val("");
+            },
+            error : function(xhr, status) {
+               alert('Error');
+            },
+            complete: function(){
+                leerClientes();
+            }
+        });
+    }else{
+        alert("Falta el Id o el nombre");
+    }
+}
+  
+function editarClient(){
+    let idClient=$("#idCliente").val();
+    let emailClient=$("#mailCliente").val();
+    let passwordClient=$("#passwordCliente").val();
+    let nameClient=$("#nombreCliente").val();
+    let ageClient=$("#edadCliente").val();
+    
+    let data={
+        idClient: idClient,
+        email: emailClient,
+        password: passwordClient,
+        name: nameClient,
+        age: ageClient,
+    };
+    let dataToSend=JSON.stringify(data);
+    //console.log(dataToSend);
+    $.ajax({    
+        url : 'http://192.9.144.130:8080/api/Client/update',
+        type : 'PUT',
+     //   dataType : 'json',
+        data:dataToSend,
+        contentType:'application/json',
+        success : function(pepito) {
+            $("#idCliente").val("");
+            $("#mailCliente").val("");
+            $("#passwordCliente").val("");
+            $("#nombreCliente").val("");
+            $("#edadCliente").val("");
+        },
+        error : function(xhr, status) {
+       //     alert('ha sucedido un problema');
+        },
+        complete: function(){
+            leerClientes();
+        }
+    });
+    quitarPop();
+}
+    
+function borrarClient(idClient){
+    let data={
+        idClient:idClient
+    };
+    let dataToSend=JSON.stringify(data);
+    //console.log(dataToSend);
+    $.ajax({    
+        url : 'http://192.9.144.130:8080/api/Client/' + idClient,
+        type : 'DELETE',
+     //   dataType : 'json',
+        data:dataToSend,
+        contentType:'application/json',
+        success : function(pepito) {
+            $("#mailCliente").val("");
+            $("#passwordCliente").val("");
+            $("#nombreCliente").val("");
+            $("#edadCliente").val("");
+        },
+        error : function(xhr, status) {
+       //     alert('ha sucedido un problema');
+        },
+        complete: function(){
+            leerClientes();
+            quitarPop();
+        }
+    });
+}
+
+function datosTablaClient(Client_item){
+    let idClient=$("#idCliente");
+    let emailClient=$("#mailCliente");
+    let passwordClient=$("#passwordCliente");
+    let nameClient=$("#nombreCliente");
+    let ageClient=$("#edadCliente")
+
+    let getFormulario = $(".cont_formulario");
+    let getBotones = $(".botones");
+    let getBoton = $(".botones div");
+    
+    getBoton.hide();
+    getBotones.append('<div onclick="editarClient()">Editar Cliente</div>');
+    getFormulario.addClass("cont_formulario_cambios");
+    $('.cerrar_pop').css('display', 'Flex');
+    $('.ocultoForm').css('display', 'inline-block');
+    $.ajax({
+        url : 'http://192.9.144.130:8080/api/Client/all',
+        type : 'GET',
+        dataType : 'json',
+
+        success : function(Client) {
+                let cs = Client;
+                for(i=0;i<cs.length;i++){
+                    if(cs[i].id == Client_item){
+                        idClient.val(cs[i].idClient);
+                        emailClient.val(cs[i].email)
+                        passwordClient.val(cs[i].password);
+                        nameClient.val(cs[i].name);
+                        ageClient.val(cs[i].age);
+                    }
+                }
+        }
+    });
+}
+
+
+
+// Message
+
+function leerMensaje(){
+    //FUNCION GET
+    $.ajax({    
+        url : 'http://192.9.144.130:8080/api/Message/all',
+        type : 'GET',
+        dataType : 'json',
+
+        success : function(Message) {
+               let cs=Message;
+               $("#listaClientes").empty();
+               if(cs.length <= 0){
+                    $("#listaClientes").append("<tr><td class='noClientes' colspan='5'>No hay Categorias</td></tr>");
+               }else{
+                    for(i=0;i<cs.length;i++){
+                       /*let nl = cs[i].client.id;
+                       if(cs[i].costumes.id == undefined){
+                            nl = "No hay";
+                       }*/
+                       $("#listaClientes").append("<tr class='TablaSelec' onClick='datosTablaMensaje(" + cs[i].idMessage + ")'><td>" + cs[i].idMessage + "</td><td>" + cs[i].messageText + "</td><td>" + cs[i].costume.id + "</td><td>" + cs[i].client.idClient + "</td><td class='borrar'><div class='btn-borrar' onclick='borrarMensaje("+cs[i].idMessage+")'><i class='fa-solid fa-trash-can'></i></div></td></tr>");
+                    }
+               }
+        },
+        error : function(xhr, status) {
+            alert('ha sucedido un problema');
+        }
+    });
+}
+
+function guardarMensaje() {
+    //FUNCION POST
+    let mensajetext=$("#mensaje").val();
+    let idDisfraz=$("#idDisfraz").val();
+    let idCliente=$("#idCliente").val();
+
+    console.log(mensajetext)
+    if(mensajetext){
+        let data={
+            messageText: mensajetext,
+            costume: {id:idDisfraz},
+            client: {idClient:idCliente},
+        };
+        
+        let dataToSend=JSON.stringify(data);
+        
+        $.ajax({    
+            url : 'http://192.9.144.130:8080/api/Message/save',
+            type : 'POST',
+            //dataType : 'json',
+            data:dataToSend,
+            contentType:'application/json',
+            success : function(pepito) {
+                $("#mensaje").val("");
+                $("#idDisfraz").val("");
+                $("#idCliente").val("");
+            },
+            error : function(xhr, status) {
+               alert('Error');
+            },
+            complete: function(){
+                leerMensaje();
+            }
+        });
+    }else{
+        alert("Falta el Id o el nombre");
+    }
+}
+  
+function editarMensaje(){
+    let idMessage=$("#idMensaje").val();
+    let mensajetext=$("#mensaje").val();
+    let idDisfraz=$("#idDisfraz").val();
+    let idCliente=$("#idCliente").val();
+
+    let data={
+        idMessage: idMessage,
+        messageText: mensajetext,
+        costume: {id:idDisfraz},
+        client: {idClient:idCliente},
+    };
+
+    let dataToSend=JSON.stringify(data);
+    //console.log(dataToSend);
+    $.ajax({    
+        url : 'http://192.9.144.130:8080/api/Message/update',
+        type : 'PUT',
+     //   dataType : 'json',
+        data:dataToSend,
+        contentType:'application/json',
+        success : function(pepito) {
+            $("#idMensaje").val("");
+            $("#mensaje").val("");
+            $("#idDisfraz").val("");
+            $("#idCliente").val("");
+        },
+        error : function(xhr, status) {
+       //     alert('ha sucedido un problema');
+        },
+        complete: function(){
+            leerMensaje();
+        }
+    });
+    quitarPop();
+}
+    
+function borrarMensaje(idMessage){
+    let data={
+        idMessage:idMessage
+    };
+    let dataToSend=JSON.stringify(data);
+    //console.log(dataToSend);
+    $.ajax({    
+        url : 'http://192.9.144.130:8080/api/Message/' + idMessage,
+        type : 'DELETE',
+     //   dataType : 'json',
+        data:dataToSend,
+        contentType:'application/json',
+        success : function(pepito) {
+            $("#mensaje").val("");
+        },
+        error : function(xhr, status) {
+       //     alert('ha sucedido un problema');
+        },
+        complete: function(){
+            leerMensaje();
+            quitarPop();
+        }
+    });
+}
+
+function datosTablaMensaje(Message_item){
+    let idMessage=$("#idMensaje");
+    let mensajetext=$("#mensaje");
+    let idDisfraz=$("#idDisfraz");
+    let idCliente=$("#idCliente");
+
+    let getFormulario = $(".cont_formulario");
+    let getBotones = $(".botones");
+    let getBoton = $(".botones div");
+    
+    getBoton.hide();
+    getBotones.append('<div onclick="editarMensaje()">Editar Mensaje</div>');
+    getFormulario.addClass("cont_formulario_cambios");
+    $('.cerrar_pop').css('display', 'Flex');
+    $('.ocultoForm').css('display', 'inline-block');
+    $.ajax({
+        url : 'http://192.9.144.130:8080/api/Message/all',
+        type : 'GET',
+        dataType : 'json',
+
+        success : function(Message) {
+                let cs = Message;
+                for(i=0;i<cs.length;i++){
+                    if(cs[i].idMessage == Message_item){
+                        idMessage.val(cs[i].idMessage);
+                        mensajetext.val(cs[i].messageText);
+                        idDisfraz.val(cs[i].costume.id);
+                        idCliente.val(cs[i].client.idClient);
+                    }
+                }
+        }
+    });
+}

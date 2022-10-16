@@ -29,15 +29,17 @@
         </ul>
     </nav>
     <header>
-        <h1><i class="fa-solid fa-calendar-days"></i> Reservas</h1>
+        <h1><i class="fa-solid fa-comments"></i> Mensajes</h1>
     </header>
     <main class="content">
         <div class="cont_formulario">
             <div class="all_formulario">
                 <div class="cerrar_pop"><i class="fa-solid fa-xmark"></i></div>
                 <form action="" class="formulario">
-                    <label for="idMensaje">ID</label><br><input type="number" id="idMensaje"><br>
+                    <label for="idMensaje" class="ocultoForm">ID de mensaje</label><br><input type="number" id="idMensaje" disabled class="ocultoForm"><br>
                     <label for="mensaje">Mensaje</label><br><textarea id="mensaje" name="text" rows="4" cols="50"></textarea><br>
+                    <label for="idDisfraz">ID de disfraz</label><br><input type="number" id="idDisfraz"><br>
+                    <label for="idCliente">ID de cliente</label><br><input type="number" id="idCliente"><br>
                 </form>
                 <div class="botones">
                     <div onclick="guardarMensaje()">Guardar Mensaje</div>
@@ -49,7 +51,7 @@
                 <tr>
                     <td>
                         <table cellspacing="0" cellpadding="1" border="0">
-                            <tr><th>ID</th><th>MENSAJE</th><th>BORRAR</th></tr>
+                            <tr><th>IDMESSAGE</th><th>MENSAJETEXT</th><th>IDCOSTUME</th><th>IDCLIENT</th><th>BORRAR</th></tr>
                         </table>
                     </td>
                 </tr>

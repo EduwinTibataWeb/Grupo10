@@ -36,9 +36,10 @@
             <div class="all_formulario">
                 <div class="cerrar_pop"><i class="fa-solid fa-xmark"></i></div>
                 <form action="" class="formulario">
-                    <label for="idCliente">ID de cliente:</label><br><input  type="number" id="idCliente"><br>
+                    <label for="idCliente" class="ocultoForm">ID de cliente:</label><br><input  type="number" id="idCliente" disabled class="ocultoForm"><br>
                     <label for="nombreCliente">NOMBRE de cliente:</label><br><input maxlength="4000" type="text" id="nombreCliente"><br>
                     <label for="mailCliente">CORREO de cliente:</label><br><input type="email" maxlength="20" id="mailCliente"><br>
+                    <label for="passwordCliente">PASSWORD de cliente:</label><br><input type="password" maxlength="20" id="passwordCliente"><br>
                     <label for="edadCliente">EDAD de cliente:</label><br><input type="number" id="edadCliente"><br>
                 </form>
                 <div class="botones">
@@ -51,7 +52,7 @@
                 <tr>
                     <td>
                         <table cellspacing="0" cellpadding="1" border="0">
-                            <tr><th>ID</th><th>NOMBRE</th><th>CORREO</th><th>AÑOS</th><th>BORRAR</th></tr>
+                            <tr><th>IDCLIENT</th><th>EMAIL</th><th>PASSWORD</th><th>NAME</th><th>AGE</th><th>BORRAR</th></tr>
                         </table>
                     </td>
                 </tr>
